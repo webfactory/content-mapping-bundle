@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <!-- Console Commands -->
+        <service class="Webfactory\ContentMappingBundle\Command\SynchronizeCommand">
+            <argument type="service" id="contentmapping.synchronizer_registry"/>
+            <argument type="service" id="logger"/>
+            <tag name="monolog.logger" channel="contentmapping" />
+            <tag name="console.command" />
+        </service>
+
+        <service class="Webfactory\ContentMappingBundle\Command\ListSynchronizersCommand">
+            <argument type="service" id="contentmapping.synchronizer_registry"/>
+            <tag name="console.command" />
+        </service>
+
+        <!-- Synchronizer Registry -->
+        <service id="contentmapping.synchronizer_registry" class="Webfactory\ContentMappingBundle\Synchronizer\Registry">
+            <argument type="service" id="service_container"/>
+        </service>
+
+    </services>
+</container>
