@@ -1,7 +1,8 @@
 # content-mapping-bundle #
 
-Symfony2 bundle for webfactory/content-mapping. If you configure your Synchronizers as services, you can use the
-provided console commands to list and start them. This is useful e.g. for cronjobs.
+Symfony2 bundle for [webfactory/content-mapping](https://github.com/webfactory/content-mapping). If you configure your
+Synchronizers as services, you can use the provided console commands to list and start them. This is useful e.g. for
+cronjobs.
 
 
 ## Installation ##
@@ -73,8 +74,8 @@ to list your registered synchronizers denoted by their objectclass, and
 
     app/console content-mapping:synchronize
 
-to start them. Use -o=objectclass to start only the Synchronizer for the *objectclass* and -f to force updates in the
-destination systems even if no changes are detected.
+to start them. Use `-o=objectclass` to start only the Synchronizer for the `objectclass` and `-f` to force updates in
+the destination systems even if no changes are detected.
 
 
 ## Credits, Copyright and License ##
