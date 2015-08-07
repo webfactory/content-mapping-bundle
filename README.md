@@ -53,7 +53,7 @@ First, register your Synchronizers as a service, e.g. in your services.xml:
     </argument>
 
     <!-- DestinationAdapter -->
-    <argument type="service" id="contentmapping.destinationadapter.solr"/>
+    <argument type="service" id="contentmapping.destinationadapter.solarium"/>
 
     <!-- PSR3-logger -->
     <argument type="service" id="logger" />
