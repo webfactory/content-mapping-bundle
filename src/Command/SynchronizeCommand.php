@@ -25,6 +25,7 @@ final class SynchronizeCommand extends Command
     private $logger;
 
     /**
+     * @param Registry $synchronizerRegistry
      * @param LoggerInterface $logger
      */
     public function __construct(Registry $synchronizerRegistry, LoggerInterface $logger)
