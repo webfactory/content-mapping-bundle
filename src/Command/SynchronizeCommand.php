@@ -2,11 +2,15 @@
 
 namespace Webfactory\ContentMappingBundle\Command;
 
-use Psr\Log\LoggerInterface;
+use Monolog\Handler\HandlerInterface;
+use Monolog\Logger;
+use Monolog\Processor\PsrLogMessageProcessor;
+use Symfony\Bridge\Monolog\Formatter\ConsoleFormatter;
+use Symfony\Bridge\Monolog\Handler\ConsoleHandler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 use Webfactory\ContentMappingBundle\Synchronizer\Registry;
 
 /**
@@ -20,15 +24,15 @@ final class SynchronizeCommand extends Command
     private $synchronizerRegistry;
 
     /**
-     * @var LoggerInterface
+     * @var Logger
      */
     private $logger;
 
     /**
      * @param Registry $synchronizerRegistry
-     * @param LoggerInterface $logger
+     * @param Logger   $logger
      */
-    public function __construct(Registry $synchronizerRegistry, LoggerInterface $logger)
+    public function __construct(Registry $synchronizerRegistry, Logger $logger)
     {
         parent::__construct();
         $this->synchronizerRegistry = $synchronizerRegistry;
@@ -61,6 +65,11 @@ final class SynchronizeCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $consoleHandler = new ConsoleHandler($output);
+        $consoleHandler->setFormatter(new ConsoleFormatter("%start_tag%[%datetime%] %channel%.%level_name%:%end_tag% %message%\n"));
+        $this->logger->setHandlers([$consoleHandler]);
+        $this->logger->pushProcessor(new PsrLogMessageProcessor());
+
         $force = $input->getOption('force');
         $only = $input->getOption('only');
 
