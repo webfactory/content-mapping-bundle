@@ -6,14 +6,14 @@
     <services>
 
         <!-- Console Commands -->
-        <service class="Webfactory\ContentMappingBundle\Command\SynchronizeCommand">
+        <service id="webfactory_content_mapping.command.synchronize_command" class="Webfactory\ContentMappingBundle\Command\SynchronizeCommand">
             <argument type="service" id="contentmapping.synchronizer_registry"/>
             <argument type="service" id="logger"/>
             <tag name="monolog.logger" channel="contentmapping" />
             <tag name="console.command" />
         </service>
 
-        <service class="Webfactory\ContentMappingBundle\Command\ListSynchronizersCommand">
+        <service id="webfactory_content_mapping.command.list_synchronizers_command" class="Webfactory\ContentMappingBundle\Command\ListSynchronizersCommand">
             <argument type="service" id="contentmapping.synchronizer_registry"/>
             <tag name="console.command" />
         </service>
