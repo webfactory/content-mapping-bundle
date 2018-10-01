@@ -1,6 +1,6 @@
 # content-mapping-bundle #
 
-Symfony2 bundle for [webfactory/content-mapping](https://github.com/webfactory/content-mapping). If you configure your
+Symfony bundle for [webfactory/content-mapping](https://github.com/webfactory/content-mapping). If you configure your
 Synchronizers as services, you can use the provided console commands to list and start them. This is useful e.g. for
 cronjobs.
 
