@@ -82,7 +82,7 @@ the destination systems even if no changes are detected.
 
 This project was started at webfactory GmbH, Bonn.
 
-- <http://www.webfactory.de>
-- <http://twitter.com/webfactory>
+- <https://www.webfactory.de>
+- <https://twitter.com/webfactory>
 
-Copyright 2015 webfactory GmbH, Bonn. Code released under [the MIT license](LICENSE).
+Copyright 2015-2018 webfactory GmbH, Bonn. Code released under [the MIT license](LICENSE).
