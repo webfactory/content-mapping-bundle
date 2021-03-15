@@ -74,7 +74,7 @@ to list your registered synchronizers denoted by their objectclass, and
 
     app/console content-mapping:synchronize
 
-to start them. Use `-o=objectclass` to start only the Synchronizer for the `objectclass` and `-f` to force updates in
+to start them. Use `-o objectclass` to start only the Synchronizer for the `objectclass` and `-f` to force updates in
 the destination systems even if no changes are detected.
 
 
