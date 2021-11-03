@@ -52,7 +52,7 @@ final class SynchronizeCommand extends Command
             'only',
             'o',
             InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL,
-            'Only start the synchronizer for this objectclass'
+            'Only start the synchronizer for this objectclass. See all objectclasses with `bin/console content-mapping:list-synchronizers`'
         );
     }
 
