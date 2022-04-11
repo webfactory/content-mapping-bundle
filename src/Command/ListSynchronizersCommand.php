@@ -38,10 +38,12 @@ class ListSynchronizersCommand extends Command
     /**
      * {@inheritDoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->synchronizerRegistry->getObjectclasses() as $objectclass) {
             $output->writeln($objectclass);
         }
+
+        return 0;
     }
 }

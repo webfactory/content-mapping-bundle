@@ -59,7 +59,7 @@ final class SynchronizeCommand extends Command
     /**
      * {@inheritDoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $force = $input->getOption('force');
         $only = $input->getOption('only');
@@ -75,5 +75,7 @@ final class SynchronizeCommand extends Command
             $this->synchronizerRegistry->getSynchronizer($objectclass)
                                        ->synchronize($objectclass, $force);
         }
+
+        return 0;
     }
 }
