@@ -27,21 +27,14 @@ final class Registry
     /**
      * @var array(string objectClass => string serviceId)
      */
-    private $services = array();
+    private $services = [];
 
-    /**
-     * @param ContainerInterface $container
-     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
 
-    /**
-     * @param string $objectclass
-     * @param string $serviceId
-     */
-    public function addSynchronizer($objectclass, $serviceId)
+    public function addSynchronizer(string $objectclass, string $serviceId)
     {
         $this->services[$objectclass] = $serviceId;
     }
@@ -49,22 +42,19 @@ final class Registry
     /**
      * @return string[]
      */
-    public function getObjectclasses()
+    public function getObjectclasses(): array
     {
         return array_keys($this->services);
     }
 
-    /**
-     * @param string $objectclass The objectclass to retrieve the Synchronizer for.
-     * @return Synchronizer
-     */
-    public function getSynchronizer($objectclass)
+    public function getSynchronizer(string $objectclass): Synchronizer
     {
-        if (array_key_exists($objectclass, $this->services) === false) {
-            throw new \RuntimeException('No Synchronizer for objectclass "' . $objectclass . '" configured.');
+        if (false === \array_key_exists($objectclass, $this->services)) {
+            throw new \RuntimeException('No Synchronizer for objectclass "'.$objectclass.'" configured.');
         }
 
         $serviceId = $this->services[$objectclass];
+
         return $this->container->get($serviceId);
     }
 }

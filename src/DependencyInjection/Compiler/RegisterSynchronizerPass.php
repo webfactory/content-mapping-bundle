@@ -8,18 +8,15 @@
 
 namespace Webfactory\ContentMappingBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Fills the Synchronizer\Registry with services tagged as "contentmapping.synchronizer".
  */
 final class RegisterSynchronizerPass implements CompilerPassInterface
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $definition = $container->getDefinition('contentmapping.synchronizer_registry');
 
@@ -29,7 +26,7 @@ final class RegisterSynchronizerPass implements CompilerPassInterface
                     throw new \Exception('The contentmapping.synchronizer tag requires the objectclass attribute.');
                 }
 
-                $definition->addMethodCall('addSynchronizer', array($tag['objectclass'], $id));
+                $definition->addMethodCall('addSynchronizer', [$tag['objectclass'], $id]);
 
                 // Prevents Symfony from optimizing these services away if they're anonymous
                 $container->getDefinition($id)->setPublic(true);

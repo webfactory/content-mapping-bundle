@@ -1,11 +1,11 @@
-# content-mapping-bundle #
+# content-mapping-bundle
 
 Symfony bundle for [webfactory/content-mapping](https://github.com/webfactory/content-mapping). If you configure your
 Synchronizers as services, you can use the provided console commands to list and start them. This is useful e.g. for
 cronjobs.
 
 
-## Installation ##
+## Installation
 
 Install the package via composer
 
@@ -26,7 +26,7 @@ public function registerBundles()
 ```
 
 
-## Usage ##
+## Usage
 
 First, register your Synchronizers as a service, e.g. in your services.xml:
 
@@ -79,11 +79,11 @@ the destination systems even if no changes are detected. Be aware that `objectcl
 you'd like to synchronize, but the value you defined in the service definition (see above).
 
 
-## Credits, Copyright and License ##
+## Credits, Copyright and License
 
 This project was started at webfactory GmbH, Bonn.
 
 - <https://www.webfactory.de>
 - <https://twitter.com/webfactory>
 
-Copyright 2015-2018 webfactory GmbH, Bonn. Code released under [the MIT license](LICENSE).
+Copyright 2015-2022 webfactory GmbH, Bonn. Code released under [the MIT license](LICENSE).

@@ -17,27 +17,18 @@ class ListSynchronizersCommand extends Command
      */
     private $synchronizerRegistry;
 
-    /**
-     * @param Registry $synchronizerRegistry
-     */
     public function __construct(Registry $synchronizerRegistry)
     {
         parent::__construct();
         $this->synchronizerRegistry = $synchronizerRegistry;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('content-mapping:list-synchronizers')
              ->setDescription('Lists the available synchronizers');
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->synchronizerRegistry->getObjectclasses() as $objectclass) {
