@@ -76,7 +76,8 @@ to list your registered synchronizers denoted by their objectclass, and
 
 to start them. Use `-o objectclass` to start only the Synchronizer for the `objectclass` and `-f` to force updates in
 the destination systems even if no changes are detected. Be aware that `objectclass` is not the name of your entity class
-you'd like to synchronize, but the value you defined in the service definition (see above).
+you'd like to synchronize, but the value you defined in the service definition (see above). Note that backslashes in your
+`objectclass` need to be escaped (with backslashes).
 
 
 ## Credits, Copyright and License
