@@ -25,7 +25,7 @@ final class SynchronizeCommand extends Command
      */
     private $logger;
 
-    public function __construct(Registry $synchronizerRegistry, LoggerInterface $logger = null)
+    public function __construct(Registry $synchronizerRegistry, ?LoggerInterface $logger = null)
     {
         parent::__construct();
         $this->synchronizerRegistry = $synchronizerRegistry;
